@@ -5,9 +5,6 @@ Googletrans library. It is an unofficial library using the web API of translate.
 Future code may switch over to the official Google Translate API. The max character limit 
 currently is 15k based on the documenation for Googletrans.
 
-Currently delete and reply functionality is disabled. New bots have hard ratelimit caps.
-This code is more for seeing results in console for right now.
-
 Link to Googletrans 3.0.0 info: https://pypi.org/project/googletrans/
 Link to official Google Translate API: https://cloud.google.com/translate/docs
 Link to the language encoding info: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
@@ -57,10 +54,10 @@ for comment in subreddit.stream.comments():
         parent = comment.parent()  # the comment made by your bot
         grandparent = parent.parent()  # the comment that first triggered the bot
         if comment.author == grandparent.author:  # checks if the person is the one you care about
-            if parent.author == "_data_mining_bot_":
+            if parent.author == "insert_bot_name":
                 continue
             
-                # parent.delete()
+                parent.delete()
           
                 print("Delete Successful!")
         
@@ -105,9 +102,9 @@ for comment in subreddit.stream.comments():
             for listitem in log_file_list:
                 f.write('%s\n' % listitem)
         
-        # comment.reply("Translation: " + translation.text + 
-        #               "\n\nThis is a language translation bot powered by [Google Translate](translate.google.com)"+
-        #               "Find the code [here]()")
+        comment.reply("Translation: " + translation.text + 
+                      "\n\nThis is a language translation bot powered by [Google Translate](translate.google.com)"+
+                      "Find the code [here](https://github.com/RealHulubulu/Reddit_Translation_Bot)")
         
         # sys.exit()
         
