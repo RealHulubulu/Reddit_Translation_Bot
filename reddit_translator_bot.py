@@ -31,12 +31,13 @@ def comment_vs_submission(input):
         print("submission")
         return "submission"
 
-bot = praw.Reddit(user_agent='translator_bot v0.1',
-                  client_id='',
-                  client_secret='',
-                   username='',
-                   password=''
+bot = praw.Reddit(user_agent='translator_bot v0.1', #should all be blank
+                  client_id='db49X2FVKkd_Aw',
+                  client_secret='PYnBy5UnWj3hKx0EgciCAHpECLc',
+                   username='_data_mining_bot_',
+                   password='fairys'
                   )
+
 
 # Input parameters
 duration = 1.8
@@ -54,10 +55,10 @@ for comment in subreddit.stream.comments():
         parent = comment.parent()  # the comment made by your bot
         grandparent = parent.parent()  # the comment that first triggered the bot
         if comment.author == grandparent.author:  # checks if the person is the one you care about
-            if parent.author == "insert_bot_name":
+            if parent.author == "_data_mining_bot_": #insert_bot_name
                 continue
             
-                parent.delete()
+                # parent.delete()
           
                 print("Delete Successful!")
         
@@ -102,9 +103,9 @@ for comment in subreddit.stream.comments():
             for listitem in log_file_list:
                 f.write('%s\n' % listitem)
         
-        comment.reply("Translation: " + translation.text + 
-                      "\n\nThis is a language translation bot powered by [Google Translate](translate.google.com)"+
-                      "Find the code [here](https://github.com/RealHulubulu/Reddit_Translation_Bot)")
+        # comment.reply("Translation: " + translation.text + 
+        #               "\n\nThis is a language translation bot powered by [Google Translate](translate.google.com)"+
+        #               "Find the code [here](https://github.com/RealHulubulu/Reddit_Translation_Bot)")
         
         # sys.exit()
         
